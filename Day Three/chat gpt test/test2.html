@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functional Chatbox</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    #chat-container {
+      max-width: 600px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    #chat-messages {
+      padding: 10px;
+      overflow-y: scroll;
+      max-height: 300px;
+    }
+
+    #user-input {
+      display: flex;
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    #message-input {
+      flex: 1;
+      padding: 8px;
+    }
+
+    #send-button {
+      padding: 8px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #music-player {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div id="music-player">
+        <h2>Music Box</h2>
+        <audio controls>
+          <source src="https://www.youtube.com/watch?v=9SpdZ-cKKfE" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
+        <p>Listen to the music and enjoy!</p>
+      </div>
+
+  <div id="chat-container">
+    <div id="chat-messages"></div>
+    <div id="user-input">
+      <input type="text" id="message-input" placeholder="Type your message...">
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const messageInput = document.getElementById('message-input');
+      const message = messageInput.value.trim();
+
+      if (message !== '') {
+        const chatMessages = document.getElementById('chat-messages');
+        const newMessage = document.createElement('div');
+        newMessage.className = 'message';
+        newMessage.textContent = message;
+
+        chatMessages.appendChild(newMessage);
+
+        // Clear the input field
+        messageInput.value = '';
+
+        // Scroll to the bottom to show the latest message
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    }
+  </script>
+
+</body>
+</html>
